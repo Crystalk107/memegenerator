@@ -1,25 +1,45 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="destkop.css">
-    <link rel="stylesheet" href="mobile.css">
+    <!-- <link rel="stylesheet" href="destkop.css">
+    <link rel="stylesheet" href="mobile.css"> -->
     <title>MemeRUs</title>
 </head>
-<body>
+
+<body onload="init()">
+
     <header>
-
     </header>
-    <gallery>
 
-    </gallery>
-    <memegenerator>
+
+
+    <memegenerator class="canvas-container">
+
+        <canvas id="meme-canvas" onclick="draw(event)">
+            Update your browser to enjoy canvas!
+        </canvas>
+
+        <input id="memetext" type="text" name="memetext" value="One does not simply..."
+            oninput="onChangeTextLine(this)">
+
+        <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
 
     </memegenerator>
-    
+
+
+
+    <gallery class="gallery-container">
+        <img src="img/square/One-Does-Not-Simply.jpg" alt="meme1" image-id="1" onclick="onMemePicked(this)">
+    </gallery>
+
+
+
+    <script src="js/memeService.js"></script>
+    <script src="js/memeStorageService.js"></script>
+    <script src="js/memeController.js"></script>
 </body>
-<script src="js/memeStorageService.js"></script>
-<script src="js/memeService.js"></script>
-<script src="js/memeController.js"></script>
+
 </html>
