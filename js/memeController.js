@@ -18,6 +18,8 @@ function clearCanvas(){
 
 function onMemePicked(el){
     let imgId = el.getAttribute('image-id');
-    let meme = getMeme(imgId);
-    setMemeImg(meme);
+    setMeme(imgId);
+    setMemeImg()
+    document.querySelector('#memetext').value = '';
 }
+
