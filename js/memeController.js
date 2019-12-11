@@ -21,7 +21,7 @@ function onMemePicked(el){
     setMeme(imgId);
     setMemeImg();
     intialText();
-    document.querySelector('#memetext').value = '';
+    document.querySelector('#memetext').value = getCurrLine();
 }
 
 function onChangeFontSize(diff){
@@ -31,6 +31,11 @@ function onChangeFontSize(diff){
 
 function onChangeLine(diff){
     setLine(diff);
-    document.querySelector('#memetext').value = '';
+    document.querySelector('#memetext').value = getCurrLine();
+
+}
+
+function onMoveLine(diff){
+    moveLine(diff);
 
 }

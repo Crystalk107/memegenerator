@@ -12,10 +12,10 @@ let gMemes = [{
 
 selectedImgId: 2, selectedTxtIdx: 0, txts: [
     {
-        line: 'sample text', font: 'impact', size: '40', align: 'left', color: 'black'
+        line: 'sample text', font: 'impact', size: '40', align: 'left', color: 'black' ,x: 20, y: 70
     },
     {
-        line: 'input text here', font: 'impact', size: '40', align: 'left', color: 'black'
+        line: 'input text here', font: 'impact', size: '40', align: 'left', color: 'black' ,x: 20, y: 400
     }
 ]
 }];
@@ -26,6 +26,12 @@ let gCtx;
 let gWidth;
 let gHeight;
 let gCanvas;
+let gMemeCurrTxts;
+
+function moveLine(diff){
+    gMemeCurrTxts.y += diff;
+    renderCanvas();
+}
 
 function setLine(diff){
     
@@ -66,6 +72,7 @@ function setMemeImg() {
             gCanvas.width = gWidth;
             gCtx.drawImage(gImgOnCanvas, 0, 0, gImgOnCanvas.width, gImgOnCanvas.height);
             showText();
+            gMemeCurrTxts = gMeme.txts[gMeme.selectedTxtIdx];
         }
     }
 }
@@ -108,6 +115,9 @@ function drawText(txt, x, y) {
     gCtx.restore();
 }
 
+function getCurrLine(){
+    return gMeme.txts[gMeme.selectedTxtIdx].line;
+}
 
 function showText(){
     let texts = gMeme.txts;
@@ -125,18 +135,14 @@ function updateText(text) {
 }
 
 function intialText() {
-    let line1 = gMeme.txts[gMeme.selectedTxtIdx];
+    let line1 = getCurrLine();
     drawText(line1.line, line1.x, line1.y);
     gMeme.selectedTxtIdx = 1;
-    let line2 = gMeme.txts[1];
+    let line2 = getCurrLine();
     drawText(line2.line, line2.x, line2.y);
     gMeme.selectedTxtIdx = 0;
+    
 }
-
-
-
-
-
 
 
 function downloadCanvas(elLink) {
