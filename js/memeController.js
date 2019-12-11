@@ -12,14 +12,25 @@ function onChangeTextLine(el){
     updateText(input)
 }
 
-function clearCanvas(){
+function renderCanvas(){
     setMemeImg();
 }
 
 function onMemePicked(el){
     let imgId = el.getAttribute('image-id');
     setMeme(imgId);
-    setMemeImg()
+    setMemeImg();
+    intialText();
     document.querySelector('#memetext').value = '';
 }
 
+function onChangeFontSize(diff){
+    setFontSize(diff);
+    renderCanvas();
+}
+
+function onChangeLine(diff){
+    setLine(diff);
+    document.querySelector('#memetext').value = '';
+
+}
