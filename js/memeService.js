@@ -1,24 +1,4 @@
-let gImgs = [{ id: 1, url: 'img/square/One-Does-Not-Simply.jpg', keywords: ['happy'] }, { id: 2, url: 'img/square/meme1.jpg', keywords: ['happy'] } ];
-let gMemes = [{
-    selectedImgId: 1, selectedTxtIdx: 0, txts: [
-        {
-            line: 'One does not simply...', font: 'impact', size: 40, align: 'left', color: 'black', x: 20, y: 70
-        },
-        {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', color: 'black', x: 20, y: 400
-        }
-    ]
-}, {
 
-selectedImgId: 2, selectedTxtIdx: 0, txts: [
-    {
-        line: 'sample text', font: 'impact', size: '40', align: 'left', color: 'black' ,x: 20, y: 70
-    },
-    {
-        line: 'input text here', font: 'impact', size: '40', align: 'left', color: 'black' ,x: 20, y: 400
-    }
-]
-}];
 let gMeme;
 let gImgOnCanvas;
 let gLastX, gLastY;
@@ -28,27 +8,79 @@ let gHeight;
 let gCanvas;
 let gMemeCurrTxts;
 
-function moveLine(diff){
-    gMemeCurrTxts.y += diff;
-    renderCanvas();
+window.onresize = function () {
+    gCanvas.style.width = '70%';;
 }
 
-function setLine(diff){
-    
+
+function setVars() {
+    gMemeCurrTxts = gMeme.txts[gMeme.selectedTxtIdx];
+}
+
+function moveLine(diff) {
+    let fontSize = gMeme.txts[gMeme.selectedTxtIdx].size;
+    let fontStyle = gMeme.txts[gMeme.selectedTxtIdx].font;
+    gCtx.font = fontSize + 'px' + ' ' + fontStyle;
+    let lineMaxHeight = gCtx.measureText('M').width;
+    let boundTop = lineMaxHeight + 10;
+    let boundBot = gHeight - lineMaxHeight + 20;
+    let yPos = gMemeCurrTxts.y;
+    if (yPos > boundTop && diff < 0) gMemeCurrTxts.y += diff
+    else if (yPos < boundBot && diff > 0) gMemeCurrTxts.y += diff
+
+}
+
+function addLine() {
+    gMeme.selectedTxtIdx = gMeme.txts.length;
+    let texts = gMeme.txts;
+    texts.push({ line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: gHeight / 2 });
+}
+
+function removeLine() {
+    gMeme.txts.splice(gMeme.selectedTxtIdx, 1);
+}
+
+function setLine(diff) {
+
     let lineIdx = gMeme.selectedTxtIdx;
-    if (lineIdx+diff < gMeme.txts.length && lineIdx+diff >= 0 ) {
+    if (lineIdx + diff < gMeme.txts.length && lineIdx + diff >= 0) {
         gMeme.selectedTxtIdx += diff;
+    }
+
+}
+
+function alignText(num) {
+    let lineText = gMeme.txts[gMeme.selectedTxtIdx].line;
+    let fontSize = gMeme.txts[gMeme.selectedTxtIdx].size;
+    let fontStyle = gMeme.txts[gMeme.selectedTxtIdx].font;
+    gCtx.font = fontSize + 'px' + ' ' + fontStyle;
+    let lineWidth = gCtx.measureText(lineText).width;
+
+
+
+    if (num === -1) {
+        gMeme.txts[gMeme.selectedTxtIdx].align = 'left';
+        gMeme.txts[gMeme.selectedTxtIdx].x = (gWidth * 5) / 100;
+    }
+
+    if (num === 0) {
+        gMeme.txts[gMeme.selectedTxtIdx].align = 'center';
+        gMeme.txts[gMeme.selectedTxtIdx].x = (gWidth - lineWidth) / 2;
+    }
+    if (num === 1) {
+        gMeme.txts[gMeme.selectedTxtIdx].align = 'right';
+        gMeme.txts[gMeme.selectedTxtIdx].x = gWidth - ((gWidth * 5) / 100) - lineWidth;
     }
 }
 
-function setFontSize(diff){
-    let lineIdx = gMeme.selectedTxtIdx;
-    let memeLine = gMeme.txts[lineIdx];
-    memeLine.size = +(memeLine.size)+diff;
+function setFontSize(diff) {
+    gMemeCurrTxts = gMeme.txts[gMeme.selectedTxtIdx];
+    gMemeCurrTxts.size += diff;
 }
 function setCanvas(ctx, canvas) {
     gCtx = ctx;
     gCanvas = canvas;
+    gCanvas.style.width = '85%'
 }
 
 function setMeme(imgId) {
@@ -62,6 +94,7 @@ function setMemeImg() {
     let memeImage = getImgById(gMeme.selectedImgId);
     if (gImgOnCanvas != undefined && gImgOnCanvas.src === memeImage.url) {
         gCtx.drawImage(gImgOnCanvas, 0, 0, gImgOnCanvas.width, gImgOnCanvas.height);
+        showText();
     } else {
         gImgOnCanvas = new Image()
         gImgOnCanvas.src = memeImage.url;
@@ -71,8 +104,9 @@ function setMemeImg() {
             gCanvas.height = gHeight;
             gCanvas.width = gWidth;
             gCtx.drawImage(gImgOnCanvas, 0, 0, gImgOnCanvas.width, gImgOnCanvas.height);
+            setVars();
             showText();
-            gMemeCurrTxts = gMeme.txts[gMeme.selectedTxtIdx];
+
         }
     }
 }
@@ -93,56 +127,53 @@ function getImgIdx(imgId) {
     return index;
 }
 
-
-function getBookIdx(bookId) {
-    var index = gBooks.findIndex(function (book) {
-        return book.id === bookId;
-    });
-    return index;
+function changeFillColor(selFillColor) {
+    gMeme.txts[gMeme.selectedTxtIdx].fillcolor = selFillColor;
 }
 
+function changeStrokeColor(selStrokeColor) {
+    gMeme.txts[gMeme.selectedTxtIdx].strokecolor = selStrokeColor;
+}
 
 function drawText(txt, x, y) {
     gCtx.save();
-    gCtx.fillStyle = 'white';
-    gCtx.strokeStyle = gMeme.txts[gMeme.selectedTxtIdx].color;
+    gCtx.fillStyle = gMeme.txts[gMeme.selectedTxtIdx].fillcolor;
+    gCtx.strokeStyle = gMeme.txts[gMeme.selectedTxtIdx].strokecolor;
     gCtx.lineWidth = 2;
     let fontSize = gMeme.txts[gMeme.selectedTxtIdx].size;
     let fontStyle = gMeme.txts[gMeme.selectedTxtIdx].font;
-    gCtx.font = fontSize+'px'+' '+fontStyle;
+    gCtx.font = fontSize + 'px' + ' ' + fontStyle;
     gCtx.fillText(txt, x, y);
     gCtx.strokeText(txt, x, y);
     gCtx.restore();
 }
 
-function getCurrLine(){
+function getCurrLine() {
     return gMeme.txts[gMeme.selectedTxtIdx].line;
 }
 
-function showText(){
+
+function showText() {
     let texts = gMeme.txts;
-    let text = texts.forEach(function (txt){
-        return drawText(txt.line, txt.x, txt.y)
-    }) 
-    return text;
+    let currSelectedTxt = gMeme.selectedTxtIdx;
+    for (var i = 0; i < texts.length; i++) {
+        gMeme.selectedTxtIdx = i;
+        drawText(texts[i].line, texts[i].x, texts[i].y);
+    }
+    gMeme.selectedTxtIdx = currSelectedTxt;
 }
 
 function updateText(text) {
     let txt = gMeme.txts[gMeme.selectedTxtIdx]
     txt.line = text;
-    renderCanvas();
-    drawText(txt.line, txt.x, txt.y);
+    showText();
+
 }
 
-function intialText() {
-    let line1 = getCurrLine();
-    drawText(line1.line, line1.x, line1.y);
-    gMeme.selectedTxtIdx = 1;
-    let line2 = getCurrLine();
-    drawText(line2.line, line2.x, line2.y);
-    gMeme.selectedTxtIdx = 0;
-    
+function updateLineFont(selFont) {
+    gMeme.txts[gMeme.selectedTxtIdx].font = selFont;
 }
+
 
 
 function downloadCanvas(elLink) {

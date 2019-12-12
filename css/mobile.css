@@ -1,0 +1,36 @@
+@media (max-width: 750px){
+html {
+    font-size: 12px;
+}
+
+.generator-container {
+    background-color: #e3e3e3;
+    display: grid;
+    grid-template-columns:  50% 40%;
+    margin-bottom: 20px;
+    display: none;
+    margin-right: 20px;
+    padding-right: 20px;
+}
+
+canvas{
+    padding: 0;
+}
+
+.text-modifiers button {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: white;
+    border: 0;
+    cursor: pointer;
+    margin: 4px;
+    transition: background-color .6s;
+
+}
+
+.text-modifiers button img{
+ height: 20px;
+ width: 20px;
+}
+}

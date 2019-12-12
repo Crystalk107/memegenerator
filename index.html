@@ -4,47 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" href="destkop.css">
-    <link rel="stylesheet" href="mobile.css"> -->
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/mobile.css">
     <title>MemeRUs</title>
 </head>
 
-<body onload="init()">
+<body onload="init()" class="container">
+
+    <div class="screen" onclick="toggleMenu()"></div>
 
     <header>
+        <nav class="main-nav">
+
+            <div class="main-logo">
+                <img src="img/logotext.png" alt="logo">
+            </div>
+            <div></div>
+            <ul class="main-menu clean-list">
+                <li><a class="gallery-link" href="#" onclick="showGallery()">Gallery</a></li>
+                <li><a class="about-link" href="#" onclick="showGallery()">About</a></li>
+            </ul>
+        </nav>
     </header>
 
+    <div class="generator-container">
+        <div class="canvas-container">
 
+            <canvas id="meme-canvas" onclick="draw(event)">
+                Update your browser to enjoy canvas!
+            </canvas>
 
-    <memegenerator class="canvas-container">
+        </div>
 
-        <canvas id="meme-canvas" onclick="draw(event)">
-            Update your browser to enjoy canvas!
-        </canvas>
+        <div class="text-modifiers">
 
-        <input id="memetext" type="text" name="memetext" value=""
-            oninput="onChangeTextLine(this)">
+            <div class="main-line">
+                <button onclick="onChangeLine(-1)">⇦</button>
+                <input id="memetext" type="text" name="memetext" value="" oninput="onChangeTextLine(this)">
+                <button onclick="onChangeLine(1)">⇨</button>
+            </div>
+            <div class="options-line1">
+                <button type="button" onclick="onMoveLine(-1)">⇡</button>
+                <button type="button" onclick="onMoveLine(1)">⇣</button>
+                <button type="button" onclick="onAddLine()"><img width="40px" height="40px" src="icon/add.png"
+                        alt="addLine"></button>
+                <button type="button" onclick="onRemoveLine()"><img width="40px" height="40px" src="icon/trash.png"
+                        alt="removeLine"></button>
+            </div>
 
-        <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
-        <button type="button" onclick="onChangeFontSize(1)">A+</button>
-        <button type="button" onclick="onChangeFontSize(-1)">A-</button>
-        <button type="button" onclick="onMoveLine(-1)">Move Up</button>
-        <button type="button" onclick="onMoveLine(1)">Move Down</button>
-        <button type="button" onclick="onChangeLine(1)">Next Line</button>
-        <button type="button" onclick="onChangeLine(-1)">Previous Line</button>
+            <div class="options-line2">
+                <button type="button" onclick="onChangeFontSize(1)"><img width="40px" height="40px"
+                        src="icon/increase font - icon.png" alt="incFont"></button>
+                <button type="button" onclick="onChangeFontSize(-1)"><img width="40px" height="40px"
+                        src="icon/decrease font - icon.png" alt="decFont"></button>
+                <button type="button" onclick="onAlignText(-1)"><img width="40px" height="40px"
+                        src="icon/align-to-left.png" alt="alLeft"></button>
+                <button type="button" onclick="onAlignText(0)"><img width="40px" height="40px"
+                        src="icon/center-text-alignment.png" alt="alcenter"></button>
+                <button type="button" onclick="onAlignText(1)"><img width="40px" height="40px"
+                        src="icon/align-to-right.png" alt="alLeft"></button>
+            </div>
 
-    </memegenerator>
+            <div class="options-line3">
+                <select id="selectFontFamily" name="selectFontFamily" onchange="onSelectFontFamily();">
+                    <option> Impact </option>
+                    <option> Serif </option>
+                    <option> Arial </option>
+                    <option> Sans-Serif </option>
+                    <option> Tahoma </option>
+                    <option> Verdana </option>
+                    <option> Lucida Sans Unicode </option>
+                </select>
+                <button><img width="40px" height="40px" src="icon/paint-board-and-brush.png" alt="fillcolor"><input
+                        type="color" style='opacity:0' id="fillcolor" name="fillcolor" value="#ffffff"
+                        onchange="onChangeFillColor()"></button></input>
+                <button><img width="40px" height="40px" src="icon/text stroke.png" alt="strokecolor"><input type="color"
+                        id="strokecolor" name="strokecolor" value="#000000"
+                        onchange="onChangeStrokeColor()"></button></input>
+            </div>
 
+            <div class="save-line">
+                <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+            </div>
+
+        </div>
+    </div>
 
 
     <gallery class="gallery-container">
+        <h2>Pick a meme</h2>
         <img src="img/square/One-Does-Not-Simply.jpg" alt="meme" image-id="1" onclick="onMemePicked(this)">
         <img src="img/square/meme1.jpg" alt="meme" image-id="2" onclick="onMemePicked(this)">
+        <img src="img/square/12.jpg" alt="meme" image-id="4" onclick="onMemePicked(this)">
+        <img src="img/square/Ancient-Aliens.jpg" alt="meme" image-id="3" onclick="onMemePicked(this)">
+        <img src="img/square/9.jpg" alt="meme" image-id="5" onclick="onMemePicked(this)">
+        <img src="img/square/8.jpg" alt="meme" image-id="6" onclick="onMemePicked(this)">
+        <img src="img/square/006.jpg" alt="meme" image-id="7" onclick="onMemePicked(this)">
     </gallery>
 
 
 
+
+
+    <about class="about-container">
+
+        <h4>Hi! My name is Tal Kabesa.</h4>
+        <p class="about">I've had fun creating this meme generator. I hope you guys enjoy it!</p>
+
+
+    </about>
+
+    <footer class="main-footer">
+
+
+        <img src="img/logotext.png" alt="logo">
+        <p class="rights">all rights reserved 2019</p>
+        </ul>
+    </footer>
+
     <script src="js/memeService.js"></script>
+    <script src="js/memeDataService.js"></script>
     <script src="js/memeStorageService.js"></script>
     <script src="js/memeController.js"></script>
 </body>
