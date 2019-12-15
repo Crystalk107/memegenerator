@@ -8,6 +8,7 @@ let gHeight;
 let gCanvas;
 let gMemeCurrTxts;
 
+
 window.onresize = function () {
     resizeCanvas()
     setMemeImg()
@@ -16,13 +17,24 @@ window.onresize = function () {
 
 window.onresize = function () {
     var elContainer = document.querySelector('.canvas-container');
-    if (elContainer.offsetWidth < gWidth) gCanvas.style.width = '80%';  
+    if (elContainer.offsetWidth < gWidth) gCanvas.style.width = '80%';
+}
+
+function filterMemes(input) {
+    let filteredImgs = gImgs.filter(function (image) {
+        for (let i = 0; i < image.keywords.length; i++) {
+            image.keywords[i] = image.keywords[i].toUpperCase();
+        } 
+        return image.keywords.includes(input.toUpperCase());
+    });
+    if (input === '') return filteredImgs = undefined;
+    else return filteredImgs;
 }
 
 
-function createMeme(){
+function createMeme() {
     let meme = {
-        selectedImgId: gMemes.length+1, selectedTxtIdx: 0, txts: [
+        selectedImgId: gMemes.length + 1, selectedTxtIdx: 0, txts: [
             {
                 line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
             },
@@ -30,17 +42,17 @@ function createMeme(){
                 line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
             },
         ]
-    } 
+    }
     return meme;
 }
 
-function createMemes(){
-    for ( let i = 2; i <= gImgs.length; i++){
+function createMemes() {
+    for (let i = 2; i <= gImgs.length; i++) {
         gMemes.push(createMeme());
     }
 }
 
-function getImageData(){
+function getImageData() {
     return gImgs;
 }
 function setVars() {
@@ -54,9 +66,9 @@ function moveLine(diff) {
     let lineMaxHeight = gCtx.measureText('M').width;
     let boundTop = lineMaxHeight + 30;
     let boundBot = gHeight - lineMaxHeight;
-    let yPos =  gMeme.txts[gMeme.selectedTxtIdx].y;
-    if (yPos > boundTop && diff < 0)  gMeme.txts[gMeme.selectedTxtIdx].y += -25
-    else if (yPos < boundBot && diff > 0)  gMeme.txts[gMeme.selectedTxtIdx].y += 25
+    let yPos = gMeme.txts[gMeme.selectedTxtIdx].y;
+    if (yPos > boundTop && diff < 0) gMeme.txts[gMeme.selectedTxtIdx].y += -25
+    else if (yPos < boundBot && diff > 0) gMeme.txts[gMeme.selectedTxtIdx].y += 25
 
 }
 
@@ -126,23 +138,23 @@ function setMeme(imgId) {
 
 function setMemeImg() {
     let memeImage = getImgById(gMeme.selectedImgId);
-        gImgOnCanvas = new Image()
-        gImgOnCanvas.src = memeImage.url;
-        gImgOnCanvas.onload = () => {
-            gHeight = gImgOnCanvas.height;
-            gWidth = gImgOnCanvas.width;
-            gCanvas.height = gHeight;
-            gCanvas.width = gWidth;
-            var elContainer = document.querySelector('.canvas-container');
-            if (elContainer.offsetWidth < gWidth) gCanvas.style.width = '80%';
+    gImgOnCanvas = new Image()
+    gImgOnCanvas.src = memeImage.url;
+    gImgOnCanvas.onload = () => {
+        gHeight = gImgOnCanvas.height;
+        gWidth = gImgOnCanvas.width;
+        gCanvas.height = gHeight;
+        gCanvas.width = gWidth;
+        var elContainer = document.querySelector('.canvas-container');
+        if (elContainer.offsetWidth < gWidth) gCanvas.style.width = '80%';
 
-            gCtx.drawImage(gImgOnCanvas, 0, 0, gWidth, gHeight);
+        gCtx.drawImage(gImgOnCanvas, 0, 0, gWidth, gHeight);
 
-            setVars();
-            showText();
+        setVars();
+        showText();
 
-        }
     }
+}
 
 
 

@@ -5,10 +5,22 @@ function init() {
     setCanvas(ctx, canvas);
     createMemes()
     renderGallery()
+    var input = document.querySelector("#search");
+    input.addEventListener("keyup", function(event) {
+     if (event.keyCode === 13) {
+     event.preventDefault();
+      document.querySelector("#search-button").click();
+  }
+});
 }
 
 
-function onChangeTextLine(el) {
+function onSearch(){
+    let input = document.querySelector('#search').value;
+    renderGallery(filterMemes(input));
+}
+
+function onChangeTextLine() {
     let input = document.querySelector('#memetext').value;
     updateText(input);
     renderCanvas();
@@ -19,8 +31,10 @@ function renderCanvas() {
     showText();
 }
 
-function renderGallery() {
-    let images = getImageData();
+function renderGallery(filteredMemes) {
+    let images;
+    if (filteredMemes === undefined) images = getImageData();
+    else images = filteredMemes;
     let divs = images.map(function (image) {
         return `<img src="${image.url}" alt="meme" image-id="${image.id}" onclick="onMemePicked(this)">`
     })
@@ -43,7 +57,7 @@ function hideGallery() {
     document.querySelector('.gallery-container').style.display = "none";
     document.querySelector('.about-container').style.display = "none";
     document.querySelector('.generator-container').style.display = "grid";
-    document.querySelector('h2').style.display = "none";
+    document.querySelector('.search-div').style.display = "none";
 
 }
 
@@ -53,7 +67,7 @@ function showGallery() {
     document.querySelector('.generator-container').style.display = "none";
     document.querySelector('.gallery-link').classList.add("active");
     document.querySelector('.about-link').classList.remove("active");
-    document.querySelector('h2').style.display = "block";
+    document.querySelector('.search-div').style.display = "block";
 
 }
 
@@ -127,7 +141,7 @@ function onRemoveLine() {
 }
 
 function onChangeLine(diff) {
-    if (setLine(diff) !== null){
+    if (setLine(diff) !== null) {
         document.querySelector('#memetext').value = '';
         document.querySelector('#memetext').placeholder = getCurrLine();
     }

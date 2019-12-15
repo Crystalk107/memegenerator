@@ -9,7 +9,8 @@
     <title>MemeRUs</title>
 </head>
 
-<body onload="init()" class="container">
+<body onload="init()" >
+    <div class="container">
 
     <div class="screen" onclick="toggleMenu()"></div>
 
@@ -92,30 +93,16 @@
 
         </div>
     </div>
+    <div class="search-div">
+    <div class="search-bar">
+        <input id="search" type="text" placeholder="Search.." name="search"  oninput="onSearch()">
+        <button id="search-button" onclick="onSearch()"><img src="icon/search-icon.png"></button>
+    </div>
+      <h2 id="gallery">Pick a meme</h2>
+      </div>  
 
-    <h2 id="gallery">Pick a meme</h2>
     <gallery class="gallery-container">
-        <img src="img/square/One-Does-Not-Simply.jpg" alt="meme" image-id="1" onclick="onMemePicked(this)">
-        <img src="img/square/meme1.jpg" alt="meme" image-id="2" onclick="onMemePicked(this)">
-        <img src="img/square/12.jpg" alt="meme" image-id="4" onclick="onMemePicked(this)">
-        <img src="img/square/Ancient-Aliens.jpg" alt="meme" image-id="3" onclick="onMemePicked(this)">
-        <img src="img/square/9.jpg" alt="meme" image-id="5" onclick="onMemePicked(this)">
-        <img src="img/square/8.jpg" alt="meme" image-id="6" onclick="onMemePicked(this)">
-        <img src="img/square/006.jpg" alt="meme" image-id="7" onclick="onMemePicked(this)">
-        <img src="img/square/003.jpg" alt="meme" image-id="8" onclick="onMemePicked(this)">
-        <img src="img/square/004.jpg" alt="meme" image-id="9" onclick="onMemePicked(this)">
-        <img src="img/square/005.jpg" alt="meme" image-id="10" onclick="onMemePicked(this)">
-        <img src="img/square/5.jpg" alt="meme" image-id="11" onclick="onMemePicked(this)">
-        <img src="img/square/img5.jpg" alt="meme" image-id="12" onclick="onMemePicked(this)">
-        <img src="img/square/img11.jpg" alt="meme" image-id="13" onclick="onMemePicked(this)">
-        <img src="img/square/img12.jpg" alt="meme" image-id="14" onclick="onMemePicked(this)">
-        <img src="img/square/leo.jpg" alt="meme" image-id="15" onclick="onMemePicked(this)">
-        <img src="img/square/patrick.jpg" alt="meme" image-id="16" onclick="onMemePicked(this)">
-        <img src="img/square/putin.jpg" alt="meme" image-id="17" onclick="onMemePicked(this)">
-        <img src="img/square/X-Everywhere.jpg" alt="meme" image-id="18" onclick="onMemePicked(this)">
     </gallery>
-
-
 
 
 
@@ -137,7 +124,7 @@
         <p class="rights">all rights reserved 2019</p>
         </ul>
     </footer>
-  
+</div>
     <script src="js/memeService.js"></script>
     <script src="js/memeDataService.js"></script>
     <script src="js/memeStorageService.js"></script>
