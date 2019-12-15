@@ -20,12 +20,16 @@ window.onresize = function () {
     if (elContainer.offsetWidth < gWidth) gCanvas.style.width = '80%';
 }
 
+
 function filterMemes(input) {
+    input = input.toUpperCase();
     let filteredImgs = gImgs.filter(function (image) {
+        let keywordsString = '';
         for (let i = 0; i < image.keywords.length; i++) {
             image.keywords[i] = image.keywords[i].toUpperCase();
-        } 
-        return image.keywords.includes(input.toUpperCase());
+            keywordsString += image.keywords[i]+' ';
+        }
+        return keywordsString.includes(input);
     });
     if (input === '') return filteredImgs = undefined;
     else return filteredImgs;
