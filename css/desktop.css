@@ -20,11 +20,23 @@
 html {
     font-family: Montserrat;
     background-color: #e3e3e3;
+    width: 100%;
+    height: 100%;
+   
+
+    
 }
 
 body {
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-rows: 90px 90px auto auto 207px;
+    grid-template-columns: 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
 }
 
 a {
@@ -34,7 +46,10 @@ a {
 
 h2 {
     text-align: center;
+    grid-row: 2 / 3;
 }
+
+
 
 /* Layout */
 
@@ -62,6 +77,10 @@ h2 {
 
 /* // Navbar // */
 
+.hamburger {
+    display: none;
+
+}
 .main-nav {
     font-size: 1.18rem;
     background-color: rgb(124, 54, 236);
@@ -70,10 +89,18 @@ h2 {
     grid-template-columns: auto auto 170px;
     color: white;
     margin-bottom: 20px;
+    grid-row: 1 / 2;
 }
 
 .main-nav a {
     transition: .6s;
+}
+
+.active {
+    color: black;
+    display: block;
+    height: 40px;
+    border-bottom: 2px solid black;  
 }
 
 .main-nav a:hover {
@@ -98,37 +125,55 @@ h2 {
 
 /* Main Menu */
 
+
+
 .main-menu {
     text-align: center;
     align-items: center;
     grid-template-columns: 1fr 1fr 15px;
+    grid-template-rows: 100%;
     display: grid;
 }
 
 .gallery-link {
     grid-column: 1 / 2;
+    
 }
 
 .about-link {
     grid-column: 2 / 3;
+    
 }
 
 /* Generator  */
 
+.canvas-container{
+    align-self: center;
+}
+
 .generator-container {
+   
     background-color: #e3e3e3;
     display: grid;
     grid-template-columns: 50% 50%;
-    margin-bottom: 20px;
-    padding: 20px;
+    grid-template-rows: auto;
     display: none;
+    grid-row: 3 / 4;
+
+    margin-left: auto;
+    margin-right: auto;
+    gap: 10px;
+    max-height: 500px;
+    
 }
 
 .text-modifiers {
     grid-column: 2 / 3;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-template-columns: 100%;
     align-items: center;
+    
 }
 
 .main-line button {
@@ -143,6 +188,7 @@ h2 {
     grid-row: 1 / 2;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .options-line1 {
@@ -161,6 +207,7 @@ h2 {
     grid-row: 4 / 5;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .options-line3 select {
@@ -205,9 +252,8 @@ h2 {
 }
 
 canvas {
-    padding-left: 10px;
     grid-column: 1 / 2;
-    padding-left: 20px;
+    
 }
 
 .text-modifiers button {
@@ -232,7 +278,7 @@ canvas {
 .main-line input {
     border: white;
     width: 30vw;
-    height: 8vh;
+    height: 60px;
     border-radius: 12px;
     padding-left: 3%;
     font-family: Montserrat;
@@ -248,17 +294,18 @@ canvas {
 
 /* Gallery */
 
-.about-container {
-    display: block;
-}
+
 
 .gallery-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    margin: auto;
     grid-gap: 15px;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-bottom: 20px;
+    max-width: 100%;
+    margin: 20px 40px 20px;
+    padding: auto;
+
+ 
 }
 
 .gallery-container img {
@@ -275,11 +322,23 @@ canvas {
 
 /* About */
 
+
 .about-container {
+    display: flex;
+    flex-direction: row;
+    grid-row: 4 / 5;
     background-color: white;
-    height: 200px;
-    padding-left: 10px;
-    padding-right: 10px;
+
+    bottom: 0px;
+    width: 100%;
+    
+}
+
+.about-container img{
+    border-radius: 300px;
+    height: 250px;
+    width: 250px;
+    padding: 10px;
 }
 
 /* Footer */
@@ -289,9 +348,9 @@ canvas {
     align-items: center;
     flex-direction: column;
     background-color: rgb(124, 54, 236);
-    height: 207px;
+    height: 100%;
     width: 100%;
-    padding-top: 80px;
+    grid-row: 5 / 6;
 }
 
 .rights {
@@ -299,6 +358,7 @@ canvas {
 }
 
 .main-footer img {
+    padding-top: 80px;
     height: 50px;
     width: 200px;
     padding-bottom: 20px;
@@ -356,4 +416,61 @@ canvas {
 
 .self-center {
     align-self: center;
+}
+
+
+
+
+
+@media (min-width: 767px) and (max-width: 890px){
+    html {
+        font-size: 12px;
+    }
+    
+    .generator-container {
+        background-color: #e3e3e3;
+        display: grid;
+        grid-template-columns:  50% 40%;
+        margin-bottom: 20px;
+        display: none;
+        margin-right: 20px;
+        padding-right: 20px;
+        max-height: 400px;
+    }
+    
+    
+    .text-modifiers button {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background-color: white;
+        border: 0;
+        cursor: pointer;
+        margin: 4px;
+        transition: background-color .6s;
+    
+    }
+    
+    .text-modifiers button img{
+     height: 20px;
+     width: 20px;
+    }
+
+    .main-line input {
+        height: 40px;
+    }
+
+    .options-line3 select{
+        height: 40px;
+    }
+    .save-line a {
+        display: block;
+        width: 100px;
+        height: 30px;
+        border-radius: 12px;
+        background-color: #5d37c4;
+        text-align: center;
+        color: white;
+        padding-top: 10px;
+}
 }
