@@ -43,7 +43,7 @@ body {
     border: 2px solid rgb(99, 48, 180);
     font-size:  2rem;
     opacity: 0.96;
-    transition: .6s;
+    transition: .3s;
    
 }
 
@@ -100,14 +100,14 @@ canvas{
     border: 0;
     cursor: pointer;
     margin: 4px;
-    transition: background-color .6s;
+    transition: background-color .3s;
     
 
 }
 
 .text-modifiers button img{
- height: 20px;
- width: 20px;
+ height: 40px;
+ width: 40px;
 }
 .main-line input {
     height: 60px;
@@ -123,6 +123,12 @@ canvas{
 .options-line3 select{
     height: 60px;
 }
+
+.options-line3 input {
+    height: 40px;
+    width: 40px;
+}
+
 .save-line a {
     display: block;
     width: 100px;

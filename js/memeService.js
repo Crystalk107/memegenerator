@@ -35,18 +35,18 @@ function moveLine(diff) {
     let fontStyle = gMeme.txts[gMeme.selectedTxtIdx].font;
     gCtx.font = fontSize + 'px' + ' ' + fontStyle;
     let lineMaxHeight = gCtx.measureText('M').width;
-    let boundTop = lineMaxHeight + 10;
-    let boundBot = gHeight - lineMaxHeight + 20;
+    let boundTop = lineMaxHeight + 30;
+    let boundBot = gHeight - lineMaxHeight;
     let yPos = gMemeCurrTxts.y;
-    if (yPos > boundTop && diff < 0) gMemeCurrTxts.y += diff
-    else if (yPos < boundBot && diff > 0) gMemeCurrTxts.y += diff
+    if (yPos > boundTop && diff < 0) gMemeCurrTxts.y += -25
+    else if (yPos < boundBot && diff > 0) gMemeCurrTxts.y += 25
 
 }
 
 function addLine() {
     gMeme.selectedTxtIdx = gMeme.txts.length;
     let texts = gMeme.txts;
-    texts.push({ line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: gHeight / 2 });
+    texts.push({ line: '', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: gHeight / 2 });
 }
 
 function removeLine() {

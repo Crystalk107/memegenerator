@@ -23,7 +23,7 @@ function onMemePicked(el) {
     let imgId = el.getAttribute('image-id');
     setMeme(imgId);
     setMemeImg();
-    document.querySelector('#memetext').value = getCurrLine();
+    document.querySelector('#memetext').placeholder = getCurrLine();
     document.querySelector('.gallery-link').classList.remove("active");
     document.querySelector('.about-link').classList.remove("active");
     hideGallery();
@@ -98,23 +98,26 @@ function onAlignText(num) {
 
 function onAddLine() {
     addLine();
+    document.querySelector('#memetext').value = '';
+    document.querySelector('#memetext').placeholder = 'input text here';
     renderCanvas();
-    document.querySelector('#memetext').value = getCurrLine();
 }
 
 function onRemoveLine() {
     if (getCurrLine() !== null) {
-        document.querySelector('#memetext').value = getCurrLine();
+        document.querySelector('#memetext').placeholder = getCurrLine();
         removeLine();
         onChangeLine(-1);
+        if (getCurrLine() === null) document.querySelector('#memetext').placeholder = 'Warning: there are no more lines';
     }
-    else document.querySelector('#memetext').value = 'Warning: there are no more lines to delete!';
+
     renderCanvas();
 }
 
 function onChangeLine(diff) {
     setLine(diff);
-    document.querySelector('#memetext').value = getCurrLine();
+    document.querySelector('#memetext').value = '';
+    document.querySelector('#memetext').placeholder = getCurrLine();
 
 }
 

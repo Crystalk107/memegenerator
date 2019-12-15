@@ -26,17 +26,17 @@ let gMemes = [{
             line: 'One does not simply...', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         }
     ]
 }, {
 
     selectedImgId: 2, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -44,10 +44,10 @@ let gMemes = [{
 
     selectedImgId: 3, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -55,10 +55,10 @@ let gMemes = [{
 
     selectedImgId: 4, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -66,10 +66,10 @@ let gMemes = [{
 
     selectedImgId: 5, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -77,10 +77,10 @@ let gMemes = [{
 
     selectedImgId: 6, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -88,10 +88,10 @@ let gMemes = [{
 
     selectedImgId: 7, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -99,10 +99,10 @@ let gMemes = [{
 
     selectedImgId: 8, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -110,10 +110,10 @@ let gMemes = [{
 
     selectedImgId: 9, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -121,10 +121,10 @@ let gMemes = [{
 
     selectedImgId: 10, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -132,10 +132,10 @@ let gMemes = [{
 
     selectedImgId: 11, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -143,10 +143,10 @@ let gMemes = [{
 
     selectedImgId: 12, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -154,10 +154,10 @@ let gMemes = [{
 
     selectedImgId: 13, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -165,10 +165,10 @@ let gMemes = [{
 
     selectedImgId: 14, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -176,10 +176,10 @@ let gMemes = [{
 
     selectedImgId: 15, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -187,10 +187,10 @@ let gMemes = [{
 
     selectedImgId: 16, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -198,10 +198,10 @@ let gMemes = [{
 
     selectedImgId: 17, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 },
@@ -209,10 +209,10 @@ let gMemes = [{
 
     selectedImgId: 18, selectedTxtIdx: 0, txts: [
         {
-            line: 'sample text', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
         },
         {
-            line: 'input text here', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
         },
     ]
 }
