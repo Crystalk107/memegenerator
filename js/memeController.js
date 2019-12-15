@@ -3,6 +3,8 @@ function init() {
     document.querySelector('.gallery-link').classList.add("active");
     ctx = canvas.getContext('2d');
     setCanvas(ctx, canvas);
+    createMemes()
+    renderGallery()
 }
 
 
@@ -15,15 +17,23 @@ function onChangeTextLine(el) {
 function renderCanvas() {
     setMemeImg();
     showText();
-
-
 }
+
+function renderGallery() {
+    let images = getImageData();
+    let divs = images.map(function (image) {
+        return `<img src="${image.url}" alt="meme" image-id="${image.id}" onclick="onMemePicked(this)">`
+    })
+    document.querySelector('.gallery-container').innerHTML = divs.join('');
+}
+
 
 function onMemePicked(el) {
     let imgId = el.getAttribute('image-id');
     setMeme(imgId);
     setMemeImg();
     document.querySelector('#memetext').placeholder = getCurrLine();
+    document.querySelector('#memetext').value = '';
     document.querySelector('.gallery-link').classList.remove("active");
     document.querySelector('.about-link').classList.remove("active");
     hideGallery();
@@ -105,20 +115,23 @@ function onAddLine() {
 
 function onRemoveLine() {
     if (getCurrLine() !== null) {
-        document.querySelector('#memetext').placeholder = getCurrLine();
         removeLine();
         onChangeLine(-1);
-        if (getCurrLine() === null) document.querySelector('#memetext').placeholder = 'Warning: there are no more lines';
+        document.querySelector('#memetext').placeholder = getCurrLine();
+        if (getCurrLine() === null) {
+            onAddLine()
+        };
     }
 
     renderCanvas();
 }
 
 function onChangeLine(diff) {
-    setLine(diff);
-    document.querySelector('#memetext').value = '';
-    document.querySelector('#memetext').placeholder = getCurrLine();
-
+    if (setLine(diff) !== null){
+        document.querySelector('#memetext').value = '';
+        document.querySelector('#memetext').placeholder = getCurrLine();
+    }
+    // setLine(diff);
 }
 
 function onMoveLine(diff) {

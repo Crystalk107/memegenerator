@@ -16,16 +16,33 @@ window.onresize = function () {
 
 window.onresize = function () {
     var elContainer = document.querySelector('.canvas-container');
-    if (elContainer.offsetWidth < gWidth) gCanvas.style.width = '80%';
-    
+    if (elContainer.offsetWidth < gWidth) gCanvas.style.width = '80%';  
 }
-// function resizeCanvas() {
-//     var elContainer = document.querySelector('.canvas-container');
-//     gCanvas.width = elContainer.offsetWidth - 100;
-//     gCanvas.height = elContainer.offsetHeight - 100;
-// }
 
 
+function createMeme(){
+    let meme = {
+        selectedImgId: gMemes.length+1, selectedTxtIdx: 0, txts: [
+            {
+                line: '1st line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 70
+            },
+            {
+                line: '2nd line', font: 'impact', size: 40, align: 'left', strokecolor: 'black', fillcolor: 'white', x: 25, y: 400
+            },
+        ]
+    } 
+    return meme;
+}
+
+function createMemes(){
+    for ( let i = 2; i <= gImgs.length; i++){
+        gMemes.push(createMeme());
+    }
+}
+
+function getImageData(){
+    return gImgs;
+}
 function setVars() {
     gMemeCurrTxts = gMeme.txts[gMeme.selectedTxtIdx];
 }
@@ -37,9 +54,9 @@ function moveLine(diff) {
     let lineMaxHeight = gCtx.measureText('M').width;
     let boundTop = lineMaxHeight + 30;
     let boundBot = gHeight - lineMaxHeight;
-    let yPos = gMemeCurrTxts.y;
-    if (yPos > boundTop && diff < 0) gMemeCurrTxts.y += -25
-    else if (yPos < boundBot && diff > 0) gMemeCurrTxts.y += 25
+    let yPos =  gMeme.txts[gMeme.selectedTxtIdx].y;
+    if (yPos > boundTop && diff < 0)  gMeme.txts[gMeme.selectedTxtIdx].y += -25
+    else if (yPos < boundBot && diff > 0)  gMeme.txts[gMeme.selectedTxtIdx].y += 25
 
 }
 
@@ -63,7 +80,7 @@ function setLine(diff) {
     let lineIdx = gMeme.selectedTxtIdx;
     if (lineIdx + diff < gMeme.txts.length && lineIdx + diff >= 0) {
         gMeme.selectedTxtIdx += diff;
-    }
+    } else return null;
 
 }
 
